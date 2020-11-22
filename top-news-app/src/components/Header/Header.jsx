@@ -8,24 +8,26 @@ const Header = () => {
       <nav>
         <ul>
           <div className={styles.left_nav_items}>
-            <li>
-              <Link to="/">Top News</Link>
-            </li>
-            <li>
-              <Link to="/">Categories</Link>
-            </li>
-            <li>
-              <Link to="/">Search</Link>
-            </li>
+            <Link to="/">
+              <li>Top News</li>
+            </Link>
+            <Link to="/">
+              <li>Categories</li>
+            </Link>
+
+            <Link to="/">
+              <li>Search</li>
+            </Link>
           </div>
 
           <div className={styles.right_nav_items}>
-            <li>
-              <Link to="/">GB</Link>
-            </li>
-            <li>
-              <Link to="/">US</Link>
-            </li>
+            <Link to="/">
+              <li>GB</li>
+            </Link>
+
+            <Link to="/">
+              <li>US</li>
+            </Link>
           </div>
         </ul>
       </nav>

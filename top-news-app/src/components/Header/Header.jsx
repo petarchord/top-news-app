@@ -41,12 +41,12 @@ const Header = () => {
           </div>
 
           <div className={styles.right_nav_items}>
-            <Link to="/" onClick={() => setCountry(0)}>
-              <li className={country === 0 ? styles.active : ""}>GB</li>
+            <Link to="/" onClick={() => setCountry("gb")}>
+              <li className={country === "gb" ? styles.active : ""}>GB</li>
             </Link>
 
-            <Link to="/" onClick={() => setCountry(1)}>
-              <li className={country === 1 ? styles.active : ""}>US</li>
+            <Link to="/" onClick={() => setCountry("us")}>
+              <li className={country === "us" ? styles.active : ""}>US</li>
             </Link>
           </div>
         </ul>

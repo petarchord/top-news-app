@@ -1,5 +1,5 @@
 import styles from "./App.module.scss";
-import { Header, TopNews } from "./components";
+import { Header, TopNews, SearchNews } from "./components";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { CountryProvider } from "./context/CountryContext";
 function App() {
@@ -8,7 +8,8 @@ function App() {
       <CountryProvider>
         <div className={styles.container}>
           <Header />
-          <TopNews />
+          {/* <TopNews /> */}
+          <SearchNews />
         </div>
       </CountryProvider>
     </Router>

@@ -1,20 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styles from "./News.module.scss";
-import { fetchNewsByCountry } from "../../api";
 import NewsItem from "../NewsItem/NewsItem";
-import Loader from "../Common/Loader/Loader";
 
-const News = () => {
-  const [news, setNews] = useState([]);
-
-  const fetchApi = async () => {
-    setNews(await fetchNewsByCountry("us"));
-  };
-
-  useEffect(() => {
-    fetchApi();
-  }, []);
-
+const News = ({ news }) => {
   return (
     <div className={styles.container}>
       {news &&

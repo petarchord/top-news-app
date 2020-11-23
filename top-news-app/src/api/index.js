@@ -14,3 +14,17 @@ export const fetchNewsByCountry = async (country) => {
     console.log("error ocurred", error);
   }
 };
+
+export const fetchNewsByTerm = async (country, term) => {
+  try {
+    const {
+      data: { articles },
+    } = await axios.get(
+      `${baseUrl}country=${country}&q=${term}&apiKey=${apiKey}`
+    );
+    console.log("articles", articles);
+    return articles;
+  } catch (error) {
+    console.log("error ocurred", error);
+  }
+};

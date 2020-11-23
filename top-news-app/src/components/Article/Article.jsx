@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./NewsView.module.scss";
+import styles from "./Article.module.scss";
 import { Link } from "react-router-dom";
 
-const NewsView = () => {
+const Article = () => {
   return (
     <div className={styles.container}>
       <h2>Title</h2>
@@ -13,4 +13,4 @@ const NewsView = () => {
   );
 };
 
-export default NewsView;
+export default Article;

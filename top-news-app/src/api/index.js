@@ -8,7 +8,7 @@ export const fetchNewsByCountry = async (country) => {
     const {
       data: { articles },
     } = await axios.get(`${baseUrl}country=${country}&apiKey=${apiKey}`);
-    console.log("articles", articles);
+    console.log("articles:", articles);
     return articles;
   } catch (error) {
     console.log("error ocurred", error);

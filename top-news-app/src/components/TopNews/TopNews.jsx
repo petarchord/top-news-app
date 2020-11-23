@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
-import styles from "./Home.module.scss";
-import { fetchNewsByCountry } from "../../api";
+import styles from "./TopNews.module.scss";
 import News from "../News/News";
 
-const Home = () => {
+const TopNews = () => {
   return (
     <main className={styles.container}>
       <h3>Top news from Great Britain:</h3>
@@ -12,4 +11,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default TopNews;

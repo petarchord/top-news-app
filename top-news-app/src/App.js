@@ -1,13 +1,16 @@
 import styles from "./App.module.scss";
-import { Header, Home } from "./components";
+import { Header, TopNews } from "./components";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { CountryProvider } from "./context/CountryContext";
 function App() {
   return (
     <Router>
-      <div className={styles.container}>
-        <Header />
-        <Home />
-      </div>
+      <CountryProvider>
+        <div className={styles.container}>
+          <Header />
+          <TopNews />
+        </div>
+      </CountryProvider>
     </Router>
   );
 }

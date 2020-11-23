@@ -13,7 +13,7 @@ const News = () => {
 
   useEffect(() => {
     fetchApi();
-  }, [news]);
+  }, []);
 
   return (
     <div className={styles.container}>

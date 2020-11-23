@@ -5,10 +5,11 @@ const apiKey = process.env.REACT_APP_API_KEY;
 
 export const fetchNewsByCountry = async (country) => {
   try {
-    const { data } = await axios.get(
-      `${baseUrl}country=${country}&apiKey=${apiKey}`
-    );
-    return data;
+    const {
+      data: { articles },
+    } = await axios.get(`${baseUrl}country=${country}&apiKey=${apiKey}`);
+    console.log("articles", articles);
+    return articles;
   } catch (error) {
     console.log("error ocurred", error);
   }

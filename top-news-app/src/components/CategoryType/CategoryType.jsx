@@ -2,31 +2,31 @@ import React, { useState, useEffect } from "react";
 import styles from "./CategoryType.module.scss";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { fetchNewsByCategory } from "../../api";
+import { Link } from "react-router-dom";
 
 const CategoryType = ({ category, country }) => {
   const [news, setNews] = useState([]);
-
-  const fetchData = async () => {
+  const fetchCategory = async () => {
     setNews(await fetchNewsByCategory(country, category.toLowerCase(), 5));
   };
 
   useEffect(() => {
-    fetchData();
+    fetchCategory();
   }, [country]);
 
   return (
-    <div className={styles.conatiner}>
+    <div className={styles.container}>
       <h3>{category}</h3>
-      <div className={styles.category_holder}>
-        <BsChevronLeft />
-        <div className={styles.content_holder}>
-          <h5> {news && news[0].title} </h5>
+      <div className={styles.content_holder}>
+        <BsChevronLeft size="3em" color="white" />
+        <BsChevronRight size="3em" color="white" />
+        <h5> {news.length && news[0].title} </h5>
+        <Link to={`/categories/${category.toLowerCase()}`}>
           <img
-            src={news && news[0].urlToImage}
-            alt={news && news[0].title + "_img"}
+            src={news.length && news[0].urlToImage}
+            alt={news.length && news[0].title + "_img"}
           />
-        </div>
-        <BsChevronRight />
+        </Link>
       </div>
     </div>
   );

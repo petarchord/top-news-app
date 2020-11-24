@@ -14,6 +14,11 @@ const Categories = () => {
       </h3>
       <section className={styles.categories}>
         <CategoryType category="Entertainment" country={country} />
+        <CategoryType category="Health" country={country} />
+        <CategoryType category="Science" country={country} />
+        <CategoryType category="Sports" country={country} />
+        <CategoryType category="Technology" country={country} />
+        <CategoryType category="Business" country={country} />
       </section>
     </main>
   );

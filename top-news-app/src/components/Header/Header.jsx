@@ -31,7 +31,7 @@ const Header = () => {
             </Link>
 
             <Link
-              to="/"
+              to="/search"
               onClick={() => {
                 setSelected(2);
               }}
@@ -41,13 +41,19 @@ const Header = () => {
           </div>
 
           <div className={styles.right_nav_items}>
-            <Link to="/" onClick={() => setCountry("gb")}>
-              <li className={country === "gb" ? styles.active : ""}>GB</li>
-            </Link>
+            <li
+              className={country === "gb" ? styles.active : ""}
+              onClick={() => setCountry("gb")}
+            >
+              GB
+            </li>
 
-            <Link to="/" onClick={() => setCountry("us")}>
-              <li className={country === "us" ? styles.active : ""}>US</li>
-            </Link>
+            <li
+              className={country === "us" ? styles.active : ""}
+              onClick={() => setCountry("us")}
+            >
+              US
+            </li>
           </div>
         </ul>
       </nav>

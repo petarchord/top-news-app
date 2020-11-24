@@ -17,20 +17,12 @@ const SearchNews = () => {
     fetchApi();
   }, [country, term]);
 
-  const getSelectedCountry = () => {
-    switch (country) {
-      case "gb":
-        return "Great Britain";
-      case "us":
-        return "United States";
-      default:
-        return "Great Britain";
-    }
-  };
-
   return (
     <main className={styles.container}>
-      <h3>Search top news from {getSelectedCountry()} by term:</h3>
+      <h3>
+        Search top news from{" "}
+        {country === "gb" ? "Great Britain" : "United States"} by term:
+      </h3>
       <div className={styles.search_input_holder}>
         <input
           type="text"

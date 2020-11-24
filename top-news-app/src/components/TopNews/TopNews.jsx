@@ -15,20 +15,11 @@ const TopNews = () => {
     fetchApi();
   }, [country]);
 
-  const getSelectedCountry = () => {
-    switch (country) {
-      case "gb":
-        return "Great Britain";
-      case "us":
-        return "United States";
-      default:
-        return "Great Britain";
-    }
-  };
-
   return (
     <main className={styles.container}>
-      <h3>Top news from {getSelectedCountry()}:</h3>
+      <h3>
+        Top news from {country === "gb" ? "Great Britain" : "United States"}:
+      </h3>
       <News news={news} />
     </main>
   );

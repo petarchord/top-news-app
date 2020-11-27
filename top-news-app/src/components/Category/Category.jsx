@@ -3,7 +3,7 @@ import styles from "./Category.module.scss";
 import News from "../News/News";
 import { fetchNewsByCategory } from "../../api";
 import { CountryContext } from "../../context/CountryContext";
-
+import Loader from "../Common/Loader/Loader";
 const Category = (props) => {
   const [news, setNews] = useState([]);
   const [country] = useContext(CountryContext);
@@ -22,7 +22,7 @@ const Category = (props) => {
         Top {category} news from{" "}
         {country === "gb" ? "Great Britain" : "United States"}{" "}
       </h3>
-      <News news={news} />
+      {news.length ? <News news={news} /> : <Loader />}
     </main>
   );
 };

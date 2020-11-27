@@ -3,19 +3,18 @@ import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
 import { CountryContext } from "../../context/CountryContext";
 import cx from "classnames";
-import { useHistory } from "react-router-dom";
+import HamburgerButton from "../HamburgerButton/HamburgerButton";
 
-const Header = () => {
+const Header = ({ toggleSideDrawer }) => {
   const [selected, setSelected] = useState(0); //0-Top News 1-Categories 2-Search
   const [countryDisabled, setCountryDisabled] = useState(false);
   const [country, setCountry] = useContext(CountryContext);
-  const history = useHistory();
-  console.log("history", history);
 
   return (
     <header className={styles.container}>
       <nav>
         <ul>
+          <HamburgerButton toggleSideDrawer={toggleSideDrawer} />
           <div className={styles.left_nav_items}>
             <Link
               to="/"

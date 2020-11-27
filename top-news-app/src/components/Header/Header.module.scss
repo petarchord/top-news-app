@@ -5,10 +5,15 @@
   width: 100%;
   background: rgb(12, 12, 12);
   color: rgb(230, 230, 230);
+  z-index: 10;
 
   ul {
     display: flex;
     justify-content: space-between;
+
+    button {
+      margin-left: 1em;
+    }
   }
 
   a {
@@ -25,7 +30,8 @@
   }
 
   .left_nav_items {
-    display: flex;
+    display: none;
+    // display: flex;
   }
 
   .right_nav_items {

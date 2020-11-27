@@ -3,6 +3,7 @@ import styles from "./CategoryType.module.scss";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { fetchNewsByCategory } from "../../api";
 import { Link } from "react-router-dom";
+import Loader from "../Common/Loader/Loader";
 
 const CategoryType = ({ category, country }) => {
   const [news, setNews] = useState([]);
@@ -29,29 +30,34 @@ const CategoryType = ({ category, country }) => {
   return (
     <div className={styles.container}>
       <h3>{category}</h3>
-      <div className={styles.content_holder}>
-        <BsChevronLeft
-          size="3em"
-          onClick={() => {
-            slideLeft();
-          }}
-        />
-        <BsChevronRight
-          size="3em"
-          onClick={() => {
-            slideRight();
-          }}
-        />
-        <div ref={slider} className={styles.slider}>
-          <h5> {news.length && news[categoryIndex].title} </h5>
-          <Link to={`/categories/${category.toLowerCase()}`}>
-            <img
-              src={news.length && news[categoryIndex].urlToImage}
-              alt={news.length && news[categoryIndex].title + "_img"}
-            />
-          </Link>
+
+      {news.length ? (
+        <div className={styles.content_holder}>
+          <BsChevronLeft
+            size="3em"
+            onClick={() => {
+              slideLeft();
+            }}
+          />
+          <BsChevronRight
+            size="3em"
+            onClick={() => {
+              slideRight();
+            }}
+          />
+          <div ref={slider} className={styles.slider}>
+            <h5> {news[categoryIndex].title} </h5>
+            <Link to={`/categories/${category.toLowerCase()}`}>
+              <img
+                src={news[categoryIndex].urlToImage}
+                alt={news[categoryIndex].title + "_img"}
+              />
+            </Link>
+          </div>
         </div>
-      </div>
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 };

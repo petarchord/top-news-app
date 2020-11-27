@@ -4,3 +4,6 @@ export { default as SearchNews } from "./SearchNews/SearchNews";
 export { default as Categories } from "./Categories/Categories";
 export { default as Category } from "./Category/Category";
 export { default as Article } from "./Article/Article";
+export { default as NotFound } from "./NotFound/NotFound";
+export { default as SideDrawer } from "./SideDrawer/SideDrawer";
+export { default as BackDrop } from "./Backdrop/Backdrop";

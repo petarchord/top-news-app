@@ -4,6 +4,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { CountryContext } from "../../context/CountryContext";
 import { fetchNewsByTerm } from "../../api";
 import News from "../News/News";
+import Loader from "../Common/Loader/Loader";
 const SearchNews = () => {
   const [term, setTerm] = useState("");
   const [news, setNews] = useState([]);
@@ -35,7 +36,7 @@ const SearchNews = () => {
         />
         <AiOutlineSearch size="1.5em" />
       </div>
-      <News news={news} />
+      {news.length ? <News news={news} /> : <Loader />}
     </main>
   );
 };

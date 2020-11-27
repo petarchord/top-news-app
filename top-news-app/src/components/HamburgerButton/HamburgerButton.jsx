@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import styles from "./HamburgerButton.module.scss";
+import PropTypes from "prop-types";
 
 const HamburgerButton = ({ toggleSideDrawer }) => {
   return (
@@ -14,6 +15,10 @@ const HamburgerButton = ({ toggleSideDrawer }) => {
       <div></div>
     </button>
   );
+};
+
+HamburgerButton.propTypes = {
+  toggleSideDrawer: PropTypes.func.isRequired,
 };
 
 export default HamburgerButton;

@@ -61,8 +61,12 @@ const CategoryType = ({ category, country }) => {
 };
 
 CategoryType.propTypes = {
-  category: PropTypes.string,
-  country: PropTypes.string,
+  category: PropTypes.string.isRequired,
+  country: PropTypes.string.isRequired,
+};
+
+CategoryType.defaultProps = {
+  country: "gb",
 };
 
 export default CategoryType;

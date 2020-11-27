@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./Article.module.scss";
+import { ArticleContext } from "../../context/ArticleContext";
 import { Link } from "react-router-dom";
 
-const Article = () => {
+const Article = (props) => {
+  const [article] = useContext(ArticleContext);
   return (
-    <div className={styles.container}>
-      <h2>Title</h2>
-      <img src="" alt="" />
-      <p>Content</p>
-      <Link>{"< Back to list"}</Link>
-    </div>
+    <main className={styles.container}>
+      <h2>{article.title}</h2>
+      <img src={article.image} alt="" />
+      <p> {article.content} </p>
+      <Link
+        onClick={() => {
+          props.history.goBack();
+        }}
+      >
+        {"< Back to list"}
+      </Link>
+    </main>
   );
 };
 

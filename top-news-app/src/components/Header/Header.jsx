@@ -2,10 +2,16 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
 import { CountryContext } from "../../context/CountryContext";
+import cx from "classnames";
+import { useHistory } from "react-router-dom";
 
 const Header = () => {
   const [selected, setSelected] = useState(0); //0-Top News 1-Categories 2-Search
+  const [countryDisabled, setCountryDisabled] = useState(false);
   const [country, setCountry] = useContext(CountryContext);
+  const history = useHistory();
+  console.log("history", history);
+
   return (
     <header className={styles.container}>
       <nav>
@@ -42,14 +48,20 @@ const Header = () => {
 
           <div className={styles.right_nav_items}>
             <li
-              className={country === "gb" ? styles.active : ""}
+              className={cx(
+                country === "gb" ? styles.active : "",
+                countryDisabled ? styles.disabled : ""
+              )}
               onClick={() => setCountry("gb")}
             >
               GB
             </li>
 
             <li
-              className={country === "us" ? styles.active : ""}
+              className={cx(
+                country === "us" ? styles.active : "",
+                countryDisabled ? styles.disabled : ""
+              )}
               onClick={() => setCountry("us")}
             >
               US

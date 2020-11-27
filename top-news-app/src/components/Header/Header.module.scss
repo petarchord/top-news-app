@@ -3,37 +3,47 @@
   top: 0;
   left: 0;
   width: 100%;
-  border-top: solid 1px;
-  border-bottom: solid 1px;
+  background: rgb(12, 12, 12);
+  color: rgb(230, 230, 230);
 
   ul {
     display: flex;
     justify-content: space-between;
   }
 
+  a {
+    color: rgb(230, 230, 230);
+  }
+
   li {
-    padding: 2em;
+    padding: 1.5em;
+    cursor: pointer;
+  }
+
+  li:hover {
+    background: rgb(40, 40, 40);
   }
 
   .left_nav_items {
     display: flex;
-
-    li {
-      border-right: solid 1px;
-    }
   }
 
   .right_nav_items {
     display: flex;
-
-    li {
-      border-left: solid 1px;
-      cursor: pointer;
-    }
   }
 
   .active {
-    color: white;
-    background-color: gray;
+    font-weight: bold;
+    background: rgb(40, 40, 40);
+  }
+
+  .disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .enabled {
+    opacity: 1;
+    pointer-events: all;
   }
 }

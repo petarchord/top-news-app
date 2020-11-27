@@ -4,7 +4,7 @@ import NewsItem from "../NewsItem/NewsItem";
 
 const News = ({ news }) => {
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       {news &&
         news.map((newsItem, index) => (
           <NewsItem
@@ -12,9 +12,10 @@ const News = ({ news }) => {
             title={newsItem.title}
             image={newsItem.urlToImage}
             description={newsItem.description}
+            content={newsItem.content}
           />
         ))}
-    </div>
+    </section>
   );
 };
 

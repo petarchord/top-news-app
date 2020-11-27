@@ -6,7 +6,6 @@
 
 a {
   text-decoration: none;
-  color: black;
 }
 
 ul {
@@ -15,5 +14,8 @@ ul {
   padding: 0;
 }
 
-.conatiner {
+.container {
+  padding: 1em;
+  max-width: 1250px;
+  margin: 0 auto;
 }

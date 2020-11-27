@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./News.module.scss";
 import NewsItem from "../NewsItem/NewsItem";
+import PropTypes from "prop-types";
 
 const News = ({ news }) => {
   return (
@@ -17,6 +18,10 @@ const News = ({ news }) => {
         ))}
     </section>
   );
+};
+
+News.propTypes = {
+  news: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default News;

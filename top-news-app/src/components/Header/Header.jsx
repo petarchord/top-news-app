@@ -2,12 +2,11 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
 import { CountryContext } from "../../context/CountryContext";
-import cx from "classnames";
 import HamburgerButton from "../HamburgerButton/HamburgerButton";
+import PropTypes from "prop-types";
 
 const Header = ({ toggleSideDrawer }) => {
   const [selected, setSelected] = useState(0); //0-Top News 1-Categories 2-Search
-  const [countryDisabled, setCountryDisabled] = useState(false);
   const [country, setCountry] = useContext(CountryContext);
 
   return (
@@ -47,20 +46,14 @@ const Header = ({ toggleSideDrawer }) => {
 
           <div className={styles.right_nav_items}>
             <li
-              className={cx(
-                country === "gb" ? styles.active : "",
-                countryDisabled ? styles.disabled : ""
-              )}
+              className={country === "gb" ? styles.active : ""}
               onClick={() => setCountry("gb")}
             >
               GB
             </li>
 
             <li
-              className={cx(
-                country === "us" ? styles.active : "",
-                countryDisabled ? styles.disabled : ""
-              )}
+              className={country === "us" ? styles.active : ""}
               onClick={() => setCountry("us")}
             >
               US
@@ -70,6 +63,10 @@ const Header = ({ toggleSideDrawer }) => {
       </nav>
     </header>
   );
+};
+
+Header.propTypes = {
+  toggleSideDrawer: PropTypes.func.isRequired,
 };
 
 export default Header;

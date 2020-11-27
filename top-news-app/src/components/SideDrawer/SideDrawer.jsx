@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./SideDrawer.module.scss";
 import { Link } from "react-router-dom";
 import cx from "classnames";
+import PropTypes from "prop-types";
 
 const SideDrawer = ({ open, toggleSideDrawer }) => {
   return (
@@ -40,6 +41,15 @@ const SideDrawer = ({ open, toggleSideDrawer }) => {
       </ul>
     </nav>
   );
+};
+
+SideDrawer.propTypes = {
+  open: PropTypes.bool.isRequired,
+  toggleSideDrawer: PropTypes.func.isRequired,
+};
+
+SideDrawer.defaultProps = {
+  open: false,
 };
 
 export default SideDrawer;

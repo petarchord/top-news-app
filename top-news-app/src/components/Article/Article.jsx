@@ -7,10 +7,11 @@ const Article = (props) => {
   const [article] = useContext(ArticleContext);
   return (
     <main className={styles.container}>
-      <h2>{article.title}</h2>
+      <h3>{article.title}</h3>
       <img src={article.image} alt="" />
       <p> {article.content} </p>
       <Link
+        to=""
         onClick={() => {
           props.history.goBack();
         }}

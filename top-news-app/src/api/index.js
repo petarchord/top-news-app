@@ -8,7 +8,6 @@ export const fetchNewsByCountry = async (country) => {
     const {
       data: { articles },
     } = await axios.get(`${baseUrl}country=${country}&apiKey=${apiKey}`);
-    console.log("articles:", articles);
     return articles;
   } catch (error) {
     console.log(error);
@@ -22,7 +21,6 @@ export const fetchNewsByTerm = async (country, term) => {
     } = await axios.get(
       `${baseUrl}country=${country}&q=${term}&apiKey=${apiKey}`
     );
-    console.log("articles", articles);
     return articles;
   } catch (error) {
     console.log(error);
@@ -36,7 +34,6 @@ export const fetchNewsByCategory = async (counrty, category, pageSize) => {
     } = await axios.get(
       `${baseUrl}country=${counrty}&category=${category}&pageSize=${pageSize}&apiKey=${apiKey}`
     );
-    console.log("category articles:", articles);
     return articles;
   } catch (error) {
     console.log(error);

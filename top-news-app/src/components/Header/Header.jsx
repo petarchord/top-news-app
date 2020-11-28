@@ -4,10 +4,13 @@ import styles from "./Header.module.scss";
 import { CountryContext } from "../../context/CountryContext";
 import HamburgerButton from "../HamburgerButton/HamburgerButton";
 import PropTypes from "prop-types";
+import { useLocation } from "react-router-dom";
+import cx from "classnames";
 
 const Header = ({ toggleSideDrawer }) => {
   const [selected, setSelected] = useState(0); //0-Top News 1-Categories 2-Search
   const [country, setCountry] = useContext(CountryContext);
+  const location = useLocation();
 
   return (
     <header className={styles.container}>
@@ -46,14 +49,20 @@ const Header = ({ toggleSideDrawer }) => {
 
           <div className={styles.right_nav_items}>
             <li
-              className={country === "gb" ? styles.active : ""}
+              className={cx(
+                country === "gb" ? styles.active : "",
+                location.pathname === "/article" ? styles.disabled : ""
+              )}
               onClick={() => setCountry("gb")}
             >
               GB
             </li>
 
             <li
-              className={country === "us" ? styles.active : ""}
+              className={cx(
+                country === "us" ? styles.active : "",
+                location.pathname === "/article" ? styles.disabled : ""
+              )}
               onClick={() => setCountry("us")}
             >
               US

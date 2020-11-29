@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import styles from "./TopNews.module.scss";
 import News from "../News/News";
 import { CountryContext } from "../../context/CountryContext";
@@ -7,13 +7,22 @@ import Loader from "../Common/Loader/Loader";
 const TopNews = () => {
   const [news, setNews] = useState([]);
   const [country] = useContext(CountryContext);
-
-  const fetchApi = async () => {
-    setNews(await fetchNewsByCountry(country));
-  };
+  const isMountedRef = useRef(null);
 
   useEffect(() => {
-    fetchApi();
+    isMountedRef.current = true;
+    const fetchNews = async () => {
+      const fetchedNews = await fetchNewsByCountry(country);
+      if (isMountedRef.current) {
+        setNews(fetchedNews);
+      }
+    };
+
+    fetchNews();
+
+    return () => {
+      isMountedRef.current = false;
+    };
   }, [country]);
 
   return (

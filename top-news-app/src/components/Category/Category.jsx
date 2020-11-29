@@ -8,13 +8,13 @@ const Category = (props) => {
   const [news, setNews] = useState([]);
   const [country] = useContext(CountryContext);
   const category = props.match.params.id;
-  const fetchCategory = async () => {
-    setNews(await fetchNewsByCategory(country, category, 20));
-  };
 
   useEffect(() => {
-    fetchCategory();
-  }, [country]);
+    const fetchCategoryNews = async () => {
+      setNews(await fetchNewsByCategory(country, category, 20));
+    };
+    fetchCategoryNews();
+  }, [country, category]);
 
   return (
     <main className={styles.container}>

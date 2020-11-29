@@ -10,12 +10,11 @@ const SearchNews = () => {
   const [news, setNews] = useState([]);
   const [country] = useContext(CountryContext);
 
-  const fetchApi = async () => {
-    setNews(await fetchNewsByTerm(country, term));
-  };
-
   useEffect(() => {
-    fetchApi();
+    const fetchNews = async () => {
+      setNews(await fetchNewsByTerm(country, term));
+    };
+    fetchNews();
   }, [country, term]);
 
   return (

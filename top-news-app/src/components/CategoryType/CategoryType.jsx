@@ -19,13 +19,12 @@ const CategoryType = ({ category, country }) => {
     else setCategoryIndex((prevIndex) => prevIndex + 1);
   };
 
-  const fetchCategory = async () => {
-    setNews(await fetchNewsByCategory(country, category.toLowerCase(), 5));
-  };
-
   useEffect(() => {
+    const fetchCategory = async () => {
+      setNews(await fetchNewsByCategory(country, category.toLowerCase(), 5));
+    };
     fetchCategory();
-  }, [country]);
+  }, [country, category]);
 
   return (
     <div className={styles.container}>
